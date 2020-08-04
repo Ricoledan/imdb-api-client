@@ -1,5 +1,3 @@
-import { getImdbId, getNextEpisode } from '../src/index'
-
 const mockGetImdbId = jest.fn()
 mockGetImdbId.mockReturnValueOnce('tt9340526')
 
