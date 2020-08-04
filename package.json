@@ -1,7 +1,7 @@
 {
   "name": "imdb-api-client",
   "version": "0.0.0-development",
-  "description": "NodeJS Client for accessing imdb data",
+  "description": "🎥 JavaScript Client for accessing imdb data",
   "files": [
     "build"
   ],
@@ -9,7 +9,7 @@
   "main": "build/index.cjs.js",
   "module": "build/index.esm.js",
   "scripts": {
-    "build": "BABEL_ENV=production npx rollup -c",
+    "build": "npx rollup -c",
     "codecov": "npx codecov",
     "commitmsg": "npx commitlint -e $GIT_PARAMS",
     "deploy": "npm run travis-deploy-once 'npm run semantic-release'",
