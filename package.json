@@ -10,14 +10,8 @@
   "module": "build/index.esm.js",
   "scripts": {
     "build": "npx rollup -c",
-    "codecov": "npx codecov",
     "commitmsg": "npx commitlint -e $GIT_PARAMS",
-    "deploy": "npm run travis-deploy-once 'npm run semantic-release'",
-    "gc": "npx commit",
-    "is-es5": "npx es-check es5 build/index.js",
     "lint": "npx eslint --ext .js .",
-    "prepare": "npm run build",
-    "semantic-release": "npx semantic-release",
     "test": "npx jest test/"
   },
   "keywords": [
@@ -58,7 +52,6 @@
     "rollup-plugin-babel-minify": "^10.0.0",
     "rollup-plugin-filesize": "^7.0.0",
     "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-terser": "^6.0.0",
-    "semantic-release": "^17.1.1"
+    "rollup-plugin-terser": "^6.0.0"
   }
 }
