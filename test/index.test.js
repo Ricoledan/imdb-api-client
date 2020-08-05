@@ -6,7 +6,7 @@ mockGetNextEpisode.mockReturnValueOnce({
   name: 'P-Valley',
   type: 'tvSeries',
   nextEpisodeTitle: 'The Trap',
-  releaseDate: '2020-08-02',
+  releaseDate: '08-02-2020',
 })
 
 test('finds the correct imdb id from the imdb api', async () => {
@@ -22,6 +22,6 @@ test('gets the next episode information from the imdb api', async () => {
     name: 'P-Valley',
     type: 'tvSeries',
     nextEpisodeTitle: 'The Trap',
-    releaseDate: '2020-08-02',
+    releaseDate: '08-02-2020',
   })
 })

@@ -5,7 +5,10 @@ const HTTPClient = axios.create({
   baseURL: 'https://imdb8.p.rapidapi.com/title/',
 })
 
-let metaInfo = {}
+const formatDateString = (dateStr) => {
+  dateStr.split('-')
+  return `${dateStr[1]}-${dateStr[2]}-${dateStr[0]}`
+}
 
 const getImdbId = (name) =>
   HTTPClient({
@@ -37,16 +40,11 @@ const getNextEpisode = (imdbId) =>
       purchaseCountry: 'US',
       tconst: `${imdbId}`,
     },
-  }).then(
-    // eslint-disable-next-line
-    (response) =>
-      // eslint-disable-next-line
-      (metaInfo = {
-        name: response.data.base.title,
-        type: response.data.base.titleType,
-        nextEpisodeTitle: response.data.nextEpisode.nextEpisodeTitle,
-        releaseDate: response.data.nextEpisode.nextEpisode.releaseDate,
-      })
-  )
+  }).then((response) => ({
+    name: response.data.base.title,
+    type: response.data.base.titleType,
+    nextEpisodeTitle: response.data.nextEpisode.nextEpisodeTitle,
+    releaseDate: formatDateString(response.data.nextEpisode.nextEpisode.releaseDate),
+  }))
 
 export { getImdbId, getNextEpisode }
