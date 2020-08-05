@@ -1,0 +1,14 @@
+node_modules/**
+
+src/**
+test/**
+coverage/**
+
+commitlint.config.js
+*.test.js
+**/__mocks__/**
+
+.eslintcache
+.babelrc
+.eslintignore
+.eslintrc

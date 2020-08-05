@@ -1,6 +1,6 @@
 {
   "name": "imdb-api-client",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "🎥 JavaScript Client for accessing imdb data",
   "files": [
     "build"
@@ -20,6 +20,7 @@
     "api"
   ],
   "author": "Ricardo Ledan",
+  "email": "ricoledan@gmail.com",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
