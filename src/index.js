@@ -23,7 +23,11 @@ const getImdbId = (name) =>
     params: {
       q: `${name}`,
     },
-  }).then((response) => response.data.d[0].id)
+  })
+    .then((response) => response.data.d[0].id)
+    .catch((error) => {
+      return error.response
+    })
 
 const getNextEpisode = (imdbId) =>
   HTTPClient({
@@ -40,11 +44,15 @@ const getNextEpisode = (imdbId) =>
       purchaseCountry: 'US',
       tconst: `${imdbId}`,
     },
-  }).then((response) => ({
-    name: response.data.base.title,
-    type: response.data.base.titleType,
-    nextEpisodeTitle: response.data.nextEpisode.nextEpisodeTitle,
-    releaseDate: formatDateString(response.data.nextEpisode.nextEpisode.releaseDate),
-  }))
+  })
+    .then((response) => ({
+      name: response.data.base.title,
+      type: response.data.base.titleType,
+      nextEpisodeTitle: response.data.nextEpisode.nextEpisodeTitle,
+      releaseDate: formatDateString(response.data.nextEpisode.nextEpisode.releaseDate),
+    }))
+    .catch((error) => {
+      return error.response
+    })
 
 export { getImdbId, getNextEpisode }
