@@ -6,8 +6,7 @@ const HTTPClient = axios.create({
 })
 
 const formatDateString = (dateStr) => {
-  dateStr.split('-')
-  return `${dateStr[1]}-${dateStr[2]}-${dateStr[0]}`
+  return dateStr.replace(/(\d{4})-(\d{2})-(\d{2})/, '$2-$3-$1')
 }
 
 const getImdbId = (name) =>
