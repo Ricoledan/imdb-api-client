@@ -10,7 +10,6 @@
   "module": "build/index.esm.js",
   "scripts": {
     "build": "npx rollup -c",
-    "check-es5": "npx es-check es5 build/index.js",
     "codecov": "npx codecov",
     "commitmsg": "npx commitlint -e $GIT_PARAMS",
     "lint": "npx eslint --ext .js .",
@@ -45,7 +44,6 @@
     "babel-jest": "^25.1.0",
     "babel-preset-minify": "^0.5.1",
     "codecov": "^3.7.2",
-    "es-check": "^5.1.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
