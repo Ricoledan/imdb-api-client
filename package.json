@@ -1,6 +1,6 @@
 {
   "name": "imdb-api-client",
-  "version": "1.0.10-development",
+  "version": "1.0.10",
   "description": "🎥 JavaScript Client for accessing imdb data",
   "files": [
     "build"
