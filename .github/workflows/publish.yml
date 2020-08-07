@@ -2,7 +2,11 @@ name: IMDB API Client
 
 on:
   release:
-    types: [created]
+    types: [published]
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
@@ -13,7 +17,22 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm test
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
+      - run: npm run check-es5
+
+coverage:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run test
+      - uses: codecov/codecov-action@v1.0.12
 
   publish-npm:
     needs: build
@@ -26,19 +45,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm publish
+      - uses: cycjimmy/semantic-release-action@v2.5.0
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.PACKAGE_TOKEN}}
