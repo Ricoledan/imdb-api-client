@@ -2,7 +2,14 @@ const axios = require('axios')
 require('dotenv').config()
 
 const HTTPClient = axios.create({
+  method: 'GET',
   baseURL: 'https://imdb8.p.rapidapi.com/title/',
+  headers: {
+    'content-type': 'application/json',
+    'x-rapidapi-host': process.env.X_RAPIDAPI_HOST,
+    'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
+    useQueryString: true,
+  },
 })
 
 const formatDateString = (dateStr) => {
@@ -11,14 +18,7 @@ const formatDateString = (dateStr) => {
 
 const getImdbId = (name) =>
   HTTPClient({
-    method: 'GET',
     url: 'auto-complete',
-    headers: {
-      'content-type': 'application/json',
-      'x-rapidapi-host': process.env.X_RAPIDAPI_HOST,
-      'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
-      useQueryString: true,
-    },
     params: {
       q: `${name}`,
     },
@@ -30,14 +30,7 @@ const getImdbId = (name) =>
 
 const getNextEpisode = (imdbId) =>
   HTTPClient({
-    method: 'GET',
     url: 'get-release-expectation-bundle',
-    headers: {
-      'content-type': 'application/json',
-      'x-rapidapi-host': process.env.X_RAPIDAPI_HOST,
-      'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
-      useQueryString: true,
-    },
     params: {
       currentCountry: 'US',
       purchaseCountry: 'US',
