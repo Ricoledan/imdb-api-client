@@ -43,7 +43,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish
       - uses: cycjimmy/semantic-release-action@v2.5.0
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
