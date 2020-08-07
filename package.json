@@ -13,7 +13,7 @@
     "codecov": "npx codecov",
     "commitmsg": "npx commitlint -e $GIT_PARAMS",
     "lint": "npx eslint --ext .js .",
-    "semantic-release": "npx semantic-release",
+    "semantic-release": "semantic-release",
     "test": "npx jest test/"
   },
   "keywords": [
@@ -58,5 +58,9 @@
     "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-terser": "^6.0.0",
     "semantic-release": "^17.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ricoledan/imdb-api-client.git"
   }
 }
