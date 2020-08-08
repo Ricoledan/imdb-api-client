@@ -8,16 +8,27 @@
 npm install imdb-api-client
 ```
 
-## API
+## Methods
 
 ```javascript
 import {
   getImdbId, getNextEpisode
-};
+}
 
-// Get the imdb id
-const getImdbId = await getImdbId('atlanta');
+// request the imdb id
+const getImdbId = await getImdbId('atlanta')
 
-// get latest episode information
-const getNextEpisode = await getNextEpisode('tt4288182');
+// request latest episode information
+const getNextEpisode = await getNextEpisode('tt4288182')
 ```
+
+## API
+
+```
+X_RAPIDAPI_HOST=
+X_RAPIDAPI_KEY=
+```
+
+To obtain host and api key, reference documentation below.
+
+[IMDb API Documentation](https://docs.rapidapi.com/docs/keys)

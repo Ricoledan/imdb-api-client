@@ -40,8 +40,10 @@ const getNextEpisode = (imdbId) =>
     .then((response) => ({
       name: response.data.base.title,
       type: response.data.base.titleType,
+      image: response.data.base.image.url,
       nextEpisodeTitle: response.data.nextEpisode.nextEpisodeTitle,
       releaseDate: formatDateString(response.data.nextEpisode.nextEpisode.releaseDate),
+      whereToWatch: response.data.waysToWatch.tvAirings.provider.providerName,
     }))
     .catch((error) => {
       return error.response
