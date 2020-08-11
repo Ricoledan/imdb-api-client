@@ -10,7 +10,6 @@
   "module": "build/index.esm.js",
   "scripts": {
     "build": "npx rollup -c",
-    "codecov": "npx codecov",
     "commitmsg": "npx commitlint -e $GIT_PARAMS",
     "lint": "npx eslint --ext .js .",
     "semantic-release": "semantic-release --branches main",
